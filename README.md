@@ -3,6 +3,8 @@
 ## HomeWork 2.1
 ### Желобанов Егор DEVOPS-21
 
+### Правила gitignore
+
 * Этим правилом игнорируются каталоги _.terraform_ в любом месте папки terraform:
 
   ``**/.terraform/*``
