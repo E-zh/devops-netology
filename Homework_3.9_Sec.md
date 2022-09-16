@@ -223,7 +223,7 @@
     Проверяю подключение к серверу `ubuntu1`, все работает:  
     ![](pics/3.9/Screenshot_11.jpg)
 7. Установил утилиту `tcpdump`, запустил сбор дампа трафика, 100 пакетов, запись в файл `001.pcap`:
-    ![](pics/3.9/Screenshot_12.jpg)
+    ![](pics/3.9/Screenshot_12.jpg)  
     Открыл файл `001.pcap` в Wireshark:
     ![](pics/3.9/Screenshot_13.jpg)  
 
