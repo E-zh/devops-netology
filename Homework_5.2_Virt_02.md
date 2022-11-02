@@ -54,3 +54,27 @@ ansible 2.9.6
   executable location = /usr/bin/ansible
   python version = 3.8.10 (default, Jun 22 2022, 20:18:18) [GCC 9.4.0]
 ```
+
+### Задача 4.
+Воспроизвести практическую часть лекции самостоятельно:
+* Создать виртуальную машину.
+* Зайти внутрь ВМ, убедиться, что Docker установлен с помощью команды `docker ps`.
+
+#### Ответ:
+```shell
+egor@netology:~$ vagrant ssh
+Welcome to Ubuntu 20.04.4 LTS (GNU/Linux 5.4.0-131-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+  System information as of Wed 02 Nov 2022 10:26:06 PM +11
+
+
+This system is built by the Bento project by Chef Software
+More information can be found at https://github.com/chef/bento
+Last login: Wed Nov  2 22:21:59 2022
+vagrant@server.netology:~$ docker ps
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+```
