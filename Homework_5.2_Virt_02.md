@@ -62,19 +62,79 @@ ansible 2.9.6
 
 #### Ответ:
 ```shell
-egor@netology:~$ vagrant ssh
-Welcome to Ubuntu 20.04.4 LTS (GNU/Linux 5.4.0-131-generic x86_64)
+egor@netology:~/server/ansible$ vagrant up
+Bringing machine 'server1.netology' up with 'virtualbox' provider...
+==> server1.netology: Importing base box 'bento/ubuntu-20.04'...
+==> server1.netology: Matching MAC address for NAT networking...
+==> server1.netology: Checking if box 'bento/ubuntu-20.04' version '202206.03.0' is up to date...
+==> server1.netology: Setting the name of the VM: server1.netology
+==> server1.netology: Clearing any previously set network interfaces...
+==> server1.netology: Preparing network interfaces based on configuration...
+    server1.netology: Adapter 1: nat
+    server1.netology: Adapter 2: hostonly
+==> server1.netology: Forwarding ports...
+    server1.netology: 22 (guest) => 20011 (host) (adapter 1)
+    server1.netology: 22 (guest) => 2222 (host) (adapter 1)
+==> server1.netology: Running 'pre-boot' VM customizations...
+==> server1.netology: Booting VM...
+==> server1.netology: Waiting for machine to boot. This may take a few minutes...
+    server1.netology: SSH address: 127.0.0.1:2222
+    server1.netology: SSH username: vagrant
+    server1.netology: SSH auth method: private key
+    server1.netology: Warning: Connection reset. Retrying...
+    server1.netology: Warning: Remote connection disconnect. Retrying...
+    server1.netology:
+    server1.netology: Vagrant insecure key detected. Vagrant will automatically replace
+    server1.netology: this with a newly generated keypair for better security.
+    server1.netology:
+    server1.netology: Inserting generated public key within guest...
+    server1.netology: Removing insecure key from the guest if it's present...
+    server1.netology: Key inserted! Disconnecting and reconnecting using new SSH key...
+==> server1.netology: Machine booted and ready!
+==> server1.netology: Checking for guest additions in VM...
+==> server1.netology: Setting hostname...
+==> server1.netology: Configuring and enabling network interfaces...
+==> server1.netology: Mounting shared folders...
+    server1.netology: /vagrant => /home/egor/server/ansible
+==> server1.netology: Running provisioner: ansible...
+    server1.netology: Running ansible-playbook...
+
+PLAY [Playbook] ****************************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [server1.netology]
+
+TASK [Installing tools] ********************************************************
+ok: [server1.netology] => (item=['git', 'curl'])
+
+TASK [Installing docker] *******************************************************
+changed: [server1.netology]
+
+TASK [Add the current user to docker group] ************************************
+changed: [server1.netology]
+
+PLAY RECAP *********************************************************************
+server1.netology           : ok=4    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+
+egor@netology:~/server/ansible$ vagrant ssh
+Welcome to Ubuntu 20.04.4 LTS (GNU/Linux 5.4.0-110-generic x86_64)
 
  * Documentation:  https://help.ubuntu.com
  * Management:     https://landscape.canonical.com
  * Support:        https://ubuntu.com/advantage
 
-  System information as of Wed 02 Nov 2022 10:26:06 PM +11
+  System information as of Thu 03 Nov 2022 10:11:40 AM UTC
+
+  System load:  0.08               Users logged in:          0
+  Usage of /:   13.6% of 30.63GB   IPv4 address for docker0: 172.17.0.1
+  Memory usage: 23%                IPv4 address for eth0:    10.0.2.15
+  Swap usage:   0%                 IPv4 address for eth1:    192.168.56.11
+  Processes:    110
 
 
 This system is built by the Bento project by Chef Software
 More information can be found at https://github.com/chef/bento
-Last login: Wed Nov  2 22:21:59 2022
-vagrant@server.netology:~$ docker ps
+Last login: Thu Nov  3 09:04:23 2022 from 10.0.2.2
+vagrant@server1:~$ docker ps
 CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
 ```
