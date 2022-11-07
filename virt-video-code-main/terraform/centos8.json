@@ -2,16 +2,22 @@
     "builders": [
       {
         "type": "yandex",
-        "folder_id": "b1gf204nf8h2udvp5k6c",
+        "token":     "<MY_OAUTH_TOKEN>",
+        "folder_id": "<MY_FOLDER_ID>",
         "zone": "ru-central1-a",
-        "image_name": "centos-8-base",
-        "image_family": "centos-base",
+
+        "image_name": "centos-8",
+        "image_family": "centos-8",
         "image_description": "CentOS8 base image",
+
         "source_image_family": "centos-8",
-        "subnet_id": "e9bvfgh9amq9anlg6eos",
+        "subnet_id": "<MY_SUBNET_ID>",
         "use_ipv4_nat": true,
         "disk_type": "network-ssd",
-        "ssh_username": "cloud-user"
+        "communicator": "ssh",
+        "ssh_username": "root",
+        "ssh_password": "root",
+        "ssh_timeout": "5m"
       }
     ]
 }

@@ -2,7 +2,7 @@
 
 locale: ru_RU.UTF-8
 
-timezone: Europe/Moscow
+timezone: Asia/Sakhalin
 
 users:
   - name: ${username}

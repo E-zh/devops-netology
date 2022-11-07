@@ -1,6 +1,6 @@
 variable "folder_id" {
   type = string
-  default = "b1gf204nf8h2udvp5k6c"
+  default = "b1grkq8mpmj47ec57jhn"
 }
 
 variable "zone" {
@@ -10,5 +10,5 @@ variable "zone" {
 
 variable "subnet" {
   type = string
-  default = "e9b4at70ta9v0ggsnclu"
+  default = "e9bvhjl2giu97t5qg1u3"
 }
