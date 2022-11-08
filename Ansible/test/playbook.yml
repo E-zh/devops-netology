@@ -1,0 +1,35 @@
+---
+- name: 'Playbook'
+  hosts: nodes
+  become: yes
+
+  tasks:
+    - name: Installing prometheus
+      apt:
+        package: prometheus
+        state: present
+        update_cache: yes
+
+    - name: Fix broken
+      shell: sudo apt --fix-broken install -y
+
+    - name: Installing adduser
+      apt:
+        package: adduser
+        state: present
+        update_cache: yes
+
+    - name: Installing libfontconfig1
+      apt:
+        package: libfontconfig1
+        state: present
+        update_cache: yes
+
+    - name: copy deb Grafana
+      copy: src=/home/egor/grafana-enterprise_9.2.3_amd64.deb dest=/home/egor
+
+    - name: Install Grafana
+      shell: sudo dpkg -i /home/egor/grafana-enterprise_9.2.3_amd64.deb
+
+    - name: Run Grafana server
+      service: name=grafana-server state=restarted

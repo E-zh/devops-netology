@@ -1,0 +1,2 @@
+[nodes]
+node01.ru-central1.internal ansible_ssh_host=51.250.83.71 ansible_ssh_user=egor
