@@ -4,16 +4,16 @@
 ### Желобанов Егор DEVOPS-21
 
 1. Подключился к сайту stackoverflow.com с помощью telnet, отправил HTTP запрос:
-    ![](pics/3.6/telnet_stackoverflow.jpg)
+    ![](../pics/3.6/telnet_stackoverflow.jpg)
     * код перенаправления `301 Moved Permanently` протокола передачи гипертекста (HTTP) показывает, что запрошенный ресурс был окончательно перемещён в URL, указанный в заголовке `Location`.
 2. Сделал то же самое в браузере, получил такой результат:
-    ![](pics/3.6/301_redirect.jpg)
+    ![](../pics/3.6/301_redirect.jpg)
     * код перенаправления 301, тот же что и в предыдущем задании.
     * по времени загрузки, самый долгий запрос занял `769 мс`:
    
-    ![](pics/3.6/769_ms_request.jpg)
+    ![](../pics/3.6/769_ms_request.jpg)
 3. Мой ip в интернете - `213.221.12.114`. Узнал выполнив команду `dig +short myip.opendns.com @resolver1.opendns.com`:
-    ![](pics/3.6/dig_my_ip.jpg)
+    ![](../pics/3.6/dig_my_ip.jpg)
 4. Мой провайдер ПАО Вымпелком, номер автономной системы - AS16345:
     ```shell
     [egor@localhost ~]$ whois -h whois.ripe.net 213.221.12.114
@@ -73,16 +73,16 @@
     % This query was served by the RIPE Database Query Service version 1.103 (HEREFORD)
     ```
 5. Выполнил команду `traceroute -An 8.8.8.8`:
-    ![](pics/3.6/traceroute.jpg)
+    ![](../pics/3.6/traceroute.jpg)
 6. Повторил запрос с помощью утилиты `mtr`, тут сложно сказать о самой большой задержке, т.к. они начинаются с 7 позиции и по 12-ю, и в среднем одинаково высоки:
-    ![](pics/3.6/mtr.jpg)
+    ![](../pics/3.6/mtr.jpg)
 7. Для определения DNS выполнил команду `dig @8.8.8.8 dns.google +trace +nodnssec`:
-    ![](pics/3.6/google_dns.jpg)
+    ![](../pics/3.6/google_dns.jpg)
     * можно добавить `| grep dns.google`, для более короткого вывода команды:
 
-   ![](pics/3.6/google_dns_grep.jpg)
+   ![](../pics/3.6/google_dns_grep.jpg)
 8. Выполнил соответствующие команды `dig -x 8.8.8.8` и `dig -x 8.8.4.4`:
-   ![](pics/3.6/google_ptr.jpg)
+   ![](../pics/3.6/google_ptr.jpg)
     * как видно из вывода команд, это:
    
     ```shell

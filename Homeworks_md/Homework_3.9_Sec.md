@@ -6,12 +6,12 @@
 Для выполнения заданий с 3 по 6, на VirtualBox были развернуты 2 сервера Ubuntu 20.04 LTS: `ubuntu1` - установка все по умолчанию, и `ubuntu2` - по умолчанию, OpenSSH server не установлен.
 
 1. Установил Bitwarden плагин для браузера. Зарегистрировался и сохранил несколько паролей:  
-    ![](pics/3.9/Screenshot_1.jpg)
+    ![](../pics/3.9/Screenshot_1.jpg)
 2. Установил Google authenticator на мобильный телефон. Настроил вход в Bitwarden акаунт через Google authenticator OTP:  
-    ![](pics/3.9/Screenshot_2.jpg)  
-    ![](pics/3.9/Screenshot_3.jpg)
+    ![](../pics/3.9/Screenshot_2.jpg)  
+    ![](../pics/3.9/Screenshot_3.jpg)
 3. Установил apache2:  
-    ![](pics/3.9/Screenshot_4.jpg)  
+    ![](../pics/3.9/Screenshot_4.jpg)  
     * сгенерировал сертификат:
    ```shell
     egor@ubuntu1:~$ sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/private/apache-selfsigned.key -out /etc/ssl/certs/apache-selfsigned.crt
@@ -47,9 +47,9 @@
     </VirtualHost>
     ```
    * проверил в браузере:  
-   ![](pics/3.9/Screenshot_5.jpg)  
-   ![](pics/3.9/Screenshot_6.jpg)  
-   ![](pics/3.9/Screenshot_7.jpg)  
+   ![](../pics/3.9/Screenshot_5.jpg)  
+   ![](../pics/3.9/Screenshot_6.jpg)  
+   ![](../pics/3.9/Screenshot_7.jpg)  
 4. Клонировал репозиторий с программой проверки:
     ```shell
     egor@ubuntu1:~$ git clone --depth 1 https://github.com/drwetter/testssl.sh.git
@@ -162,9 +162,9 @@
     Done testing now all IP addresses (on port 443): 188.114.98.195 188.114.99.195
     ```
 5. На втором сервере `ubuntu2` отсутствует ssh-server. Устанавливаю, проверяю статус, вижу что служба не запущена, запускаю ее и включаю ее в автозагрузку:  
-    ![](pics/3.9/Screenshot_8.jpg)
+    ![](../pics/3.9/Screenshot_8.jpg)
     SSH сервер работает, теперь я могу подключиться к нему из более удобной консоли:  
-    ![](pics/3.9/Screenshot_9.jpg)
+    ![](../pics/3.9/Screenshot_9.jpg)
     Сгенерировал SSH-ключи:
     ```shell
     egor@ubuntu2:~$ ssh-keygen
@@ -209,7 +209,7 @@
     and check to make sure that only the key(s) you wanted were added.
    ```
     Проверяю подключение до сервера по ключу - все прекрасно работает:  
-    ![](pics/3.9/Screenshot_10.jpg)
+    ![](../pics/3.9/Screenshot_10.jpg)
 6. Переименовал ключ SSH, настроил файл конфигурации:
     ```shell
     egor@ubuntu2:~$ mv .ssh/id_rsa .ssh/id_ubuntu1
@@ -221,16 +221,16 @@
         IdentityFile ~/.ssh/id_ubuntu1
     ```
     Проверяю подключение к серверу `ubuntu1`, все работает:  
-    ![](pics/3.9/Screenshot_11.jpg)
+    ![](../pics/3.9/Screenshot_11.jpg)
 7. Установил утилиту `tcpdump`, запустил сбор дампа трафика, 100 пакетов, запись в файл `001.pcap`:
-    ![](pics/3.9/Screenshot_12.jpg)  
+    ![](../pics/3.9/Screenshot_12.jpg)  
     Открыл файл `001.pcap` в Wireshark:
-    ![](pics/3.9/Screenshot_13.jpg)  
+    ![](../pics/3.9/Screenshot_13.jpg)  
 
 ## Необязательные задания:
 
 8. Просканировал хост `scanme.nmap.org`. Там запущены `SSH` и `http`:
-   ![](pics/3.9/Screenshot_14.jpg) 
+   ![](../pics/3.9/Screenshot_14.jpg) 
 9. Установил и настроил фаервол ufw на web-сервер из задания 3. Открыл доступ снаружи только к портам 22,80,443:
     ```shell
     root@ubuntu1:~# ufw allow ssh

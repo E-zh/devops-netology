@@ -23,8 +23,8 @@ Hey, Netology
 В качестве исходного образа взят образ Docker [nginx:latest](https://hub.docker.com/_/nginx).  
 При сборке своего образа, в Docker файле я прописал команду копирования заранее подготовленного файла index.html с необходимым содержимым внутрь контейнера.  
 Ссылки на файлы:
-* [Dockerfile](Docker/5.3/Dockerfile)
-* [index.html](Docker/5.3/index.html)
+* [Dockerfile](../Docker/5.3/Dockerfile)
+* [index.html](../Docker/5.3/index.html)
 
 Запуск контейнера осуществил командой:   
 ```shell
@@ -33,7 +33,7 @@ egor@netology:~$ docker run -d -p 8080:80 egorz/nginx-netology:1.23.2
 ```
 Зашел через браузер и увидел результат:  
   
-![](pics/5.3/nginx_docker.jpg)  
+![](../pics/5.3/nginx_docker.jpg)  
  
 
 Ссылка на репозиторий: [egorz/nginx-netology:1.23.2](https://hub.docker.com/repository/docker/egorz/nginx-netology)
