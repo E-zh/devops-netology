@@ -23,4 +23,5 @@
 * [5.3. Введение. Экосистема. Архитектура. Жизненный цикл Docker контейнера](Homeworks_md/Homework_5.3_Virt_03.md)
 * [5.4. Оркестрация группой Docker контейнеров на примере Docker Compose](Homeworks_md/Homework_5.4_Virt_04.md)
 * [5.5. Оркестрация кластером Docker контейнеров на примере Docker Swarm](Homeworks_md/Homework_5.5_Virt_05.md)
+* [6.1. Типы и структура СУБД](Homeworks_md/Homework_6.1_Subd.md)
 
