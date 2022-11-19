@@ -24,4 +24,5 @@
 * [5.4. Оркестрация группой Docker контейнеров на примере Docker Compose](Homeworks_md/Homework_5.4_Virt_04.md)
 * [5.5. Оркестрация кластером Docker контейнеров на примере Docker Swarm](Homeworks_md/Homework_5.5_Virt_05.md)
 * [6.1. Типы и структура СУБД](Homeworks_md/Homework_6.1_Subd.md)
+* [6.2. SQL](Homeworks_md/Homework_6.2_SQL.md)
 
