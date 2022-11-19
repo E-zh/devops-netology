@@ -9,7 +9,7 @@
 Приведите получившуюся команду или docker-compose манифест.
 
 #### Ответ.
-Поднял инстанс PostgresSQL, прилагаю [docker-compose.yml](../practice/06.2 SQL/docker-compose.yml)
+Поднял инстанс PostgresSQL, прилагаю [docker-compose.yml](/practice/06.2-SQL/docker-compose.yml)
 ```yaml
 version: "3"
 volumes:
