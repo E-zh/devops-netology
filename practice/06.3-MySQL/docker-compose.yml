@@ -1,0 +1,14 @@
+version: '3.8'
+services:
+  db:
+    image: mysql:8.0
+    container_name: netology_mysql
+    restart: always
+    environment:
+      - MYSQL_DATABASE=test_db
+      - MYSQL_ROOT_PASSWORD=netology
+    ports:
+      - '3306:3306'
+    volumes:
+      - ./db:/var/lib/mysql
+      - ./backup:/backup
