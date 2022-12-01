@@ -21,10 +21,7 @@
 #### Ответ:
 * поднял инстанс PostgreSQL 13-й версии, прилагаю [docker-compose.yml](/practice/06.4-PostgreSQL/docker-compose.yml). Также дополнительно подключил volume `backup`, куда положил файл дампа БД:
 ```yaml
-version: "3"
-volumes:
-  p-data:
-  p-backup:
+version: "3.8"
 services:
   postgres:
     image: postgres:13
@@ -35,12 +32,11 @@ services:
       POSTGRES_PASSWORD: "netology"
       PGDATA: "/var/lib/postgresql/data/pgdata"
     volumes:
-      - p-data:/var/lib/postgresql/data/
-      - p-backup:/backup
+      - ./p-data:/var/lib/postgresql/data/
+      - ./p-backup:/backup
     ports:
       - "5432:5432"
     network_mode: "host"
-
 ```
 * Подключился к БД PostgreSQL используя `psql`:
 ```shell
