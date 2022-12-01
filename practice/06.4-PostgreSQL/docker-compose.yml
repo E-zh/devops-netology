@@ -1,0 +1,16 @@
+version: "3.8"
+services:
+  postgres:
+    image: postgres:13
+    container_name: netology_psql
+    environment:
+      POSTGRES_DB: "netology"
+      POSTGRES_USER: "netology"
+      POSTGRES_PASSWORD: "netology"
+      PGDATA: "/var/lib/postgresql/data/pgdata"
+    volumes:
+      - ./p-data:/var/lib/postgresql/data/
+      - ./p-backup:/backup
+    ports:
+      - "5432:5432"
+    network_mode: "host"

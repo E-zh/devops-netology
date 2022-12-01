@@ -26,4 +26,5 @@
 * [6.1. Типы и структура СУБД](Homeworks_md/Homework_6.1_Subd.md)
 * [6.2. SQL](Homeworks_md/Homework_6.2_SQL.md)
 * [6.3. MySQL](Homeworks_md/Homework_6.3_MySQL.md)
+* [6.4. PostgreSQL](Homeworks_md/Homework_6.4_PostgreSQL.md)
 
