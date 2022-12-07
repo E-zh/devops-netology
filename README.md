@@ -28,4 +28,5 @@
 * [6.3. MySQL](Homeworks_md/Homework_6.3_MySQL.md)
 * [6.4. PostgreSQL](Homeworks_md/Homework_6.4_PostgreSQL.md)
 * [6.5. Elasticsearch](Homeworks_md/Homework_6.5_Elasticsearch.md)
+* [6.6. Troubleshooting](Homeworks_md/Homework_6.6_Troubleshooting.md)
 
