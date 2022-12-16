@@ -31,4 +31,5 @@
 * [6.6. Troubleshooting](Homeworks_md/Homework_6.6_Troubleshooting.md)
 * [7.1. Инфраструктура как код](Homeworks_md/Homework_7.1_IaC.md)
 * [7.2. Облачные провайдеры и синтаксис Terraform](Homeworks_md/Homework_7.2_Terraform.md)
+* [7.3. Основы и принцип работы Терраформ](Homeworks_md/Homework_7.3_Terraform.md)
 
