@@ -31,13 +31,6 @@ resource "yandex_vpc_subnet" "subnet" {
   v4_cidr_blocks = ["192.168.1.0/24"]
 }
 
-locals {
-  instance = {
-    stage = 1
-    prod  = 2
-  }
-}
-
 resource "yandex_compute_instance" "netology" {
   name = "netology"
 
