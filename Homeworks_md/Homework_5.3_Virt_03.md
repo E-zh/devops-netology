@@ -23,8 +23,8 @@ Hey, Netology
 В качестве исходного образа взят образ Docker [nginx:latest](https://hub.docker.com/_/nginx).  
 При сборке своего образа, в Docker файле я прописал команду копирования заранее подготовленного файла index.html с необходимым содержимым внутрь контейнера.  
 Ссылки на файлы:
-* [Dockerfile](../Docker/5.3/Dockerfile)
-* [index.html](../Docker/5.3/index.html)
+* [Dockerfile](/practice/05.3-Docker/Dockerfile)
+* [index.html](/practice/05.3-Docker/index.html)
 
 Запуск контейнера осуществил командой:   
 ```shell
