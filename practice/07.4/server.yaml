@@ -1,5 +1,5 @@
 repos:
-- id: /github.com/E-zh/*/
+- id: /github.com/E-zh/tc-netology
   allowed_overrides: [workflow]
   allow_custom_workflows: true
 

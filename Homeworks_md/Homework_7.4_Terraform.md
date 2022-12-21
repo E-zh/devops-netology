@@ -18,6 +18,13 @@
 В качестве результата задания приложите снимок экрана с успешным применением конфигурации.
 
 #### Ответ:
+1. Зарегистрировался
+2. Создал отдельный [репозиторий на github](https://github.com/E-zh/tc-netology)
+3. Зарегистрировал репозиторий в [https://app.terraform.io/](https://app.terraform.io/).
+4. Выполнил `plan` и `apply`:  
+![](../pics/7.4/plan_apply.jpg)
+5. Видим что в панели управления Yandex.Cloud создалась виртуальная машина:  
+![](../pics/7.4/ya_cloud.jpg)
 
 ### Задача 2. Написать серверный конфиг для атлантиса. 
 
@@ -38,6 +45,9 @@
 В качестве результата приложите ссылку на файлы `server.yaml` и `atlantis.yaml`.
 
 #### Ответ:
+Ссылки на файлы прилагаю:
+* [atlantis.yaml](https://github.com/E-zh/tc-netology/blob/main/atlantis.yaml)
+* [server.yaml](https://github.com/E-zh/tc-netology/blob/main/server.yaml)
 
 ### Задача 3. Знакомство с каталогом модулей. 
 
@@ -51,3 +61,40 @@
 В качестве результата задания приложите ссылку на созданный блок конфигураций.
 
 #### Ответ:
+Так как все задания выполнял в YandexCloud, то нашел модуль для Яндекса, но неофициальный, т.к. в списке его попросту нет.
+Взял вот [этот модуль](https://registry.terraform.io/modules/glavk/compute/yandex/latest).
+
+[Ссылка на main.tf](https://github.com/E-zh/tc-netology/blob/main/main.tf)
+Конфигурация:  
+```yaml
+provider "yandex" {
+  token     = var.yc_token
+  cloud_id  = var.yc_cloud_id
+  folder_id = var.yc_folder_id
+  zone      = "ru-central1-a"
+}
+
+module "compute" {
+  source  = "glavk/compute/yandex"
+  version = "0.1.15"
+
+  image_family = "ubuntu-2204-lts"
+  subnet       = "subnetology"
+  folder_id    = var.yc_folder_id
+
+  name              = "netology"
+  hostname          = "netology"
+  is_nat            = false
+  secondary_disk_id = ""
+
+  cores  = 2
+  memory = 4
+  size   = "10"
+
+  preemptible = false
+
+  sg_id = ["default"]
+
+}
+```
+По поводу использования модулей, думаю что если проект имеет сложную архитектуру с большим количеством зависимостей и ресурсов - то модули однозначно упростят работу. Но если необходимо развернуть 2-3 ресурса, то нет необходимости в использовании модулей.
