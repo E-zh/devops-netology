@@ -32,4 +32,5 @@
 * [7.1. Инфраструктура как код](Homeworks_md/Homework_7.1_IaC.md)
 * [7.2. Облачные провайдеры и синтаксис Terraform](Homeworks_md/Homework_7.2_Terraform.md)
 * [7.3. Основы и принцип работы Терраформ](Homeworks_md/Homework_7.3_Terraform.md)
+* [7.4. Средства командной работы над инфраструктурой](Homeworks_md/Homework_7.4_Terraform.md)
 
