@@ -34,4 +34,5 @@
 * [7.3. Основы и принцип работы Терраформ](Homeworks_md/Homework_7.3_Terraform.md)
 * [7.4. Средства командной работы над инфраструктурой](Homeworks_md/Homework_7.4_Terraform.md)
 * [7.5. Основы golang](Homeworks_md/Homework_7.5_Go.md)
+* [7.6. Написание собственных провайдеров для Terraform](Homeworks_md/Homework_7.6_Provider.md)
 
