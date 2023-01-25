@@ -460,3 +460,90 @@
    fedora
    egor@netology1:~/playbook$
    ```
+   P.S. доработал запуск с помощью `docker-compose`:
+   * содержимое [файла `docker-compose.yml`](/practice/08.1/docker-compose.yml):
+   ```yaml
+   version: "3.3"
+   services:
+     centos:
+       image: pycontribs/centos:7
+       container_name: centos7
+       command: tail -F anything
+     ubuntu:
+       image: pycontribs/ubuntu:latest
+       container_name: ubuntu
+       command: tail -F anything
+     fedora:
+       image: pycontribs/fedora:latest
+       container_name: fedora
+       command: tail -F anything
+   ```  
+   * содержимое [файла `ansible2.sh`](/practice/08.1/ansible2.sh):
+   ```shell
+   #!/usr/local/env bash
+   
+   docker-compose up -d
+   ansible-playbook -i inventory/prod.yml site.yml --vault-password-file password.txt
+   sleep 30
+   echo "Stop and removing containers..."
+   docker-compose down
+   ```  
+   * запуск и остановка проходит как и предполагалось:
+   ```shell
+   egor@netology1:~/Homework/08.1/playbook$ bash ansible2.sh
+   Creating network "playbook_default" with the default driver
+   Creating ubuntu  ... done
+   Creating fedora  ... done
+   Creating centos7 ... done
+   
+   PLAY [Print os facts] ***********************************************************************************************************
+   
+   TASK [Gathering Facts] **********************************************************************************************************
+   ok: [localhost]
+   ok: [fedora]
+   ok: [ubuntu]
+   ok: [centos7]
+   
+   TASK [Print OS] *****************************************************************************************************************
+   ok: [centos7] => {
+       "msg": "CentOS"
+   }
+   ok: [ubuntu] => {
+       "msg": "Ubuntu"
+   }
+   ok: [localhost] => {
+       "msg": "Ubuntu"
+   }
+   ok: [fedora] => {
+       "msg": "Fedora"
+   }
+   
+   TASK [Print fact] ***************************************************************************************************************
+   ok: [centos7] => {
+       "msg": "el default fact"
+   }
+   ok: [ubuntu] => {
+       "msg": "deb default fact"
+   }
+   ok: [fedora] => {
+       "msg": "fed default fact"
+   }
+   ok: [localhost] => {
+       "msg": "PaSSw0rd"
+   }
+   
+   PLAY RECAP **********************************************************************************************************************
+   centos7                    : ok=3    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+   fedora                     : ok=3    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+   localhost                  : ok=3    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+   ubuntu                     : ok=3    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+   
+   Stop and removing containers...
+   Stopping fedora  ... done
+   Stopping centos7 ... done
+   Stopping ubuntu  ... done
+   Removing fedora  ... done
+   Removing centos7 ... done
+   Removing ubuntu  ... done
+   Removing network playbook_default
+   ```

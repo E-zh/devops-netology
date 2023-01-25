@@ -1,0 +1,14 @@
+version: "3.3"
+services:
+  centos:
+    image: pycontribs/centos:7
+    container_name: centos7
+    command: tail -F anything
+  ubuntu:
+    image: pycontribs/ubuntu:latest
+    container_name: ubuntu
+    command: tail -F anything
+  fedora:
+    image: pycontribs/fedora:latest
+    container_name: fedora
+    command: tail -F anything
