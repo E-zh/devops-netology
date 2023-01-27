@@ -1,0 +1,4 @@
+---
+vector_version: "0.27.0"
+vector_packages:
+  - vector-server

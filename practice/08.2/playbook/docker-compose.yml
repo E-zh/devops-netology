@@ -1,0 +1,23 @@
+version: "3.3"
+services:
+  clickhouse:
+    image: pycontribs/centos:7
+    container_name: clickhouse-01
+    command: tail -F anything
+    networks:
+      netology:
+        ipv4_address: 10.5.0.10
+  vector:
+    image: pycontribs/centos:7
+    container_name: vector-01
+    command: tail -F anything
+    networks:
+      netology:
+        ipv4_address: 10.5.0.20
+
+networks:
+  netology:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 10.5.0.0/16
