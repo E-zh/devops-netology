@@ -1,0 +1,24 @@
+---
+# tasks file for nginx-role
+- name: Install epel-release
+  yum:
+    name: epel-release
+    state: present
+- name: Install Nginx
+  become: true
+  yum:
+    name: nginx
+    state: present
+  notify: Start nginx service
+- name: Create dir for Lighthouse
+  become: true
+  file:
+    path: "{{ lighthouse_location_dir }}"
+    state: directory
+- name: Create Nginx config
+  become: true
+  template:
+      src: nginx.conf.j2
+      dest: /etc/nginx/nginx.conf
+      mode: 0644
+  notify: Start nginx service

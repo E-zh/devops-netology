@@ -1,0 +1,34 @@
+---
+# tasks file for vector-role
+- name: Install vector
+  become: true
+  block:
+    - name: vector | Install rpm
+      become: true
+      ansible.builtin.yum:
+        disable_gpg_check: yes
+        name: "{{ vector_url }}"
+        state: present
+    - name: vector | Template config
+      become: true
+      ansible.builtin.template:
+        src: templates/vector.yml.j2
+        dest: /etc/vector/vector.yml
+        mode: "0644"
+        owner: "{{ ansible_user_id }}"
+        group: "{{ ansible_user_gid }}"
+        validate: vector validate --no-environment --config-yaml %s
+    - name: vector | Create systemd unit
+      become: true
+      ansible.builtin.template:
+        src: templates/vector.service.j2
+        dest: /etc/systemd/system/vector.service
+        mode: "0644"
+        owner: "{{ ansible_user_id }}"
+        group: "{{ ansible_user_gid }}"
+    - name: vector | Start service
+      become: true
+      ansible.builtin.systemd:
+        name: vector
+        state: started
+        daemon_reload: true

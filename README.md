@@ -38,4 +38,4 @@
 * [8.1. Введение в Ansible](Homeworks_md/Homework_8.1_Ansible.md)
 * [8.2. Работа с Playbook](Homeworks_md/Homework_8.2_Ansible.md)
 * [8.3. Использование Yandex Cloud](Homeworks_md/Homework_8.3_Ansible_Yandex.md)
-
+* [8.4. Работа с roles](Homeworks_md/Homework_8.4_Ansible_Role.md)
