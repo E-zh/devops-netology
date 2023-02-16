@@ -40,3 +40,4 @@
 * [8.3. Использование Yandex Cloud](Homeworks_md/Homework_8.3_Ansible_Yandex.md)
 * [8.4. Работа с roles](Homeworks_md/Homework_8.4_Ansible_Role.md)
 * [8.5. Тестирование roles](Homeworks_md/Homework_8.5_Ansible_Test.md)
+* [8.6. Создание собственных модулей](Homeworks_md/Homework_8.6_Module.md)
