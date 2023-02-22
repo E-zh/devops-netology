@@ -37,4 +37,16 @@
 Если всё отработало в рамках ожидания - выгрузить схемы workflow для импорта в XML. Файлы с workflow приложить к решению задания.
 
 ### Ответ:
-1. Workflow создал:
+1. Для проекта `dev-netology` создал 2 workflow:  
+    ![](../pics/9.1/List_workflows.jpg)
+2. Диаграмма `Bug workflow`:
+    ![](../pics/9.1/Bug_workflow_diagram.jpg)  
+3. Диаграмма `All tasks worflow`:
+    ![](../pics/9.1/Alltasks_worflow_diagram.jpg)  
+4. Также прилагаю настройки досок Kanban и Scrum:
+    ![](../pics/9.1/kanban_settings.jpg)
+    ![](../pics/9.1/scrum_settings.jpg)  
+5. Выполнил все действия из обязательной задачи, выгрузил схемы workflow в XML:
+    * [All tasks worflow](../practice/09.1/All_tasks_worflow.xml)
+    * [Bug workflow](../practice/09.1/Bug_workflow.xml)
+    
