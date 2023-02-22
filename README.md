@@ -41,3 +41,4 @@
 * [8.4. Работа с roles](Homeworks_md/Homework_8.4_Ansible_Role.md)
 * [8.5. Тестирование roles](Homeworks_md/Homework_8.5_Ansible_Test.md)
 * [8.6. Создание собственных модулей](Homeworks_md/Homework_8.6_Module.md)
+* [9.1. Жизненный цикл ПО](Homeworks_md/Homework_9.1_SoftLife.md)
