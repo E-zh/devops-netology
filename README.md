@@ -42,3 +42,5 @@
 * [8.5. Тестирование roles](Homeworks_md/Homework_8.5_Ansible_Test.md)
 * [8.6. Создание собственных модулей](Homeworks_md/Homework_8.6_Module.md)
 * [9.1. Жизненный цикл ПО](Homeworks_md/Homework_9.1_SoftLife.md)
+* [9.2. DevOps и SRE](Homeworks_md/Homework_9.2_DevOps_SRE.md)
+* [9.3. Процессы CI/CD](Homeworks_md/Homework_9.3_CI-CD.md)
