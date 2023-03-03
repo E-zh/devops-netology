@@ -44,3 +44,4 @@
 * [9.1. Жизненный цикл ПО](Homeworks_md/Homework_9.1_SoftLife.md)
 * [9.2. DevOps и SRE](Homeworks_md/Homework_9.2_DevOps_SRE.md)
 * [9.3. Процессы CI/CD](Homeworks_md/Homework_9.3_CI-CD.md)
+* [9.4. Jenkins](Homeworks_md/Homework_9.4_Jenkins.md)
