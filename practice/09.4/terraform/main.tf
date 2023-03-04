@@ -39,7 +39,7 @@ locals {
 
 resource "yandex_compute_instance" "netology-for" {
   for_each = local.name
-  name     = "jenkins-${each.key}"
+  name     = "jenkins-${each.key}-01"
 
   resources {
     cores  = "2"
