@@ -45,3 +45,4 @@
 * [9.2. DevOps и SRE](Homeworks_md/Homework_9.2_DevOps_SRE.md)
 * [9.3. Процессы CI/CD](Homeworks_md/Homework_9.3_CI-CD.md)
 * [9.4. Jenkins](Homeworks_md/Homework_9.4_Jenkins.md)
+* [9.5. Teamcity](Homeworks_md/Homework_9.5_TeamCity.md)
