@@ -47,3 +47,4 @@
 * [9.4. Jenkins](Homeworks_md/Homework_9.4_Jenkins.md)
 * [9.5. Teamcity](Homeworks_md/Homework_9.5_TeamCity.md)
 * [9.6. Gitlab](Homeworks_md/Homework_9.6_GitLab.md)
+* [10.1 Введение в мониторинг](Homeworks_md/Homework_10.1_Monitoring_Base.md)
