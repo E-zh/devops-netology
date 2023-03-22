@@ -1,0 +1,5 @@
+# Copy this file in /etc/cron.d/ directory
+SHELL=/bin/sh
+PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
+
+* * * * * root python3 /opt/metrics/metrics.py
