@@ -48,3 +48,4 @@
 * [9.5. Teamcity](Homeworks_md/Homework_9.5_TeamCity.md)
 * [9.6. Gitlab](Homeworks_md/Homework_9.6_GitLab.md)
 * [10.1 Введение в мониторинг](Homeworks_md/Homework_10.1_Monitoring_Base.md)
+* [10.2 Средство визуализации Grafana](Homeworks_md/Homework_10.2_Grafana.md)
