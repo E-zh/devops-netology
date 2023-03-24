@@ -16,6 +16,8 @@
 Запустил связку prometheus-grafana с помощью docker-compose, авторизовался, добавил источник данных:  
 ![](../pics/10.2/1_added_data_source_Prometheus.jpg)  
 
+---
+
 ## Задание 2
 
 Изучите самостоятельно ресурсы:
@@ -33,20 +35,46 @@
 
 Для решения этого задания приведите promql-запросы для выдачи этих метрик, а также скриншот получившейся Dashboard.
 
+### Ответ:
+Изучил вышеуказанные ресурсы.  
+
+Создал dashboard `Netology dashboard`, в ней создал Panels:
+
+* утилизация CPU для nodeexporter (в процентах, 100-idle):  
+    - `avg by(instance)(rate(node_cpu_seconds_total{job="nodeexporter",mode="idle"}[$__rate_interval])) * 100`
+* CPULA 1/5/15:
+    - `avg by (instance)(rate(node_load1{}[$__rate_interval]))` - 1 минута
+    - `avg by (instance)(rate(node_load5{}[$__rate_interval]))` - 5 минут
+    - `avg by (instance)(rate(node_load15{}[$__rate_interval]))` - 15 минут
+* количество свободной оперативной памяти:
+    - `node_memory_MemFree_bytes{job="nodeexporter"}`
+* количество места на файловой системе:
+    - `node_filesystem_free_bytes{job="nodeexporter",mountpoint="/"}`
+
+Скриншот получившегося Dashboard:  
+![](../pics/10.2/2_dashboard_netology.jpg)  
+
+---
+
 ## Задание 3
 
 1. Создайте для каждой Dashboard подходящее правило alert — можно обратиться к первой лекции в блоке «Мониторинг».
 1. В качестве решения задания приведите скриншот вашей итоговой Dashboard.
 
+### Ответ:
+Создал правила оповещения для Dashboard:  
+![](../pics/10.2/3_alert_rules.jpg)  
+
+Как видно на скриншоте, правило отрабатывает:  
+![](../pics/10.2/4_alert_ok.jpg)  
+
+---
+
 ## Задание 4
 
-1. Сохраните ваш Dashboard.Для этого перейдите в настройки Dashboard, выберите в боковом меню «JSON MODEL». Далее скопируйте отображаемое json-содержимое в отдельный файл и сохраните его.
+1. Сохраните ваш Dashboard. Для этого перейдите в настройки Dashboard, выберите в боковом меню «JSON MODEL». Далее скопируйте отображаемое json-содержимое в отдельный файл и сохраните его.
 1. В качестве решения задания приведите листинг этого файла.
 
----
+### Ответ:
+[Ссылку на json файл прилагаю](../practice/10.2/netology_dashboard.json).
 
-### Как оформить решение задания
-
-Выполненное домашнее задание пришлите в виде ссылки на .md-файл в вашем репозитории.
-
----
