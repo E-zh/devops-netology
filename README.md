@@ -50,3 +50,4 @@
 * [10.1 Введение в мониторинг](Homeworks_md/Homework_10.1_Monitoring_Base.md)
 * [10.2 Средство визуализации Grafana](Homeworks_md/Homework_10.2_Grafana.md)
 * [10.3 Система сбора логов Elastic Stack](Homeworks_md/Homework_10.3_ELK.md)
+* [10.4 Платформа мониторинга Sentry](Homeworks_md/Homework_10.4_Sentry.md)
