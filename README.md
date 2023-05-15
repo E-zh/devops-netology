@@ -53,3 +53,4 @@
 * [10.4. Платформа мониторинга Sentry](Homeworks_md/Homework_10.4_Sentry.md)
 * [10.5. Инцидент-менеджмент](Homeworks_md/Homework_10.5_Incident_management.md)
 * [11.1. Введение в микросервисы](Homeworks_md/Homework_11.1_Microservices_intro_01.md)
+* [11.2. Микросервисы: принципы](Homeworks_md/Homework_11.2_Microservices_principles.md)
