@@ -56,3 +56,4 @@
 * [11.2. Микросервисы: принципы](Homeworks_md/Homework_11.2_Microservices_principles.md)
 * [11.3. Микросервисы: подходы](Homeworks_md/Homework_11.3_Microservices_approaches.md)
 * [11.4. Микросервисы: масштабирование](Homeworks_md/Homework_11.4_Microservices_scaling.md)
+* [12.1. Kubernetes. Причины появления. Команда kubectl](Homeworks_md/Homework_12.1_Kubernetes_01.md)
