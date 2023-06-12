@@ -56,7 +56,7 @@
 3. И service и pod созданы в одном файле, запускаем `kubectl apply -f netology-web.yaml`:  
     ![](/pics/12.2/create_pod_service.jpg)  
 4. Подключился к Service с помощью `kubectl port-forward scv/netology-web 3000:8001 --address='192.168.1.74'`:  
-    * с помощью curl:
+    * с помощью curl:  
     ![](/pics/12.2/netology-web-curl.jpg)  
     * с помощью браузера:  
     ![](/pics/12.2/netology-web-browser.jpg)  
