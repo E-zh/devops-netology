@@ -58,3 +58,4 @@
 * [11.4. Микросервисы: масштабирование](Homeworks_md/Homework_11.4_Microservices_scaling.md)
 * [12.1. Kubernetes. Причины появления. Команда kubectl](Homeworks_md/Homework_12.1_Kubernetes_01.md)
 * [12.2. Базовые объекты K8S](Homeworks_md/Homework_12.2_Kubernetes_02.md)
+* [12.3. Запуск приложений в K8S](Homeworks_md/Homework_12.3_Kubernetes_03.md)
