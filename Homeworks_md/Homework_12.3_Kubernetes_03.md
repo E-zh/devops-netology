@@ -35,16 +35,14 @@
 5. Создать отдельный Pod с приложением multitool и убедиться с помощью `curl`, что из пода есть доступ до приложений из п.1.
 
 ### Отввет:
-1. Создал [Deployment из двух контейнеров](/practice/12.3/deployment-task1.yaml). Проблему запуска решил добавлением `env`.
+1. Создал [Deployment из двух контейнеров](/practice/12.3/task1/deployment-task1.yaml). Проблему запуска решил добавлением `env`.
 2. Скриншот запуска с 1 репликой:  
     ![](/pics/12.3/task1-1replica.jpg)  
 3. Скриншот после масштабирования до 2-х реплик:  
     ![](/pics/12.3/task1-2replicas.jpg)  
-4. Создал отдельный Pod и Service в [одном манифесте](/practice/12.3/pod_service.yaml)
+4. Создал отдельный Pod и Service в [одном манифесте](/practice/12.3/task1/pod_service.yaml)
 5. Проверил с помощью cUrl что из Poda есть доступ до приложения:
     ![](/pics/12.3/task2-console.jpg)  
-6. Также выполнил проброс порта и попробовал подключиться через браузер:  
-    ![](/pics/12.3/task2-browser.jpg)  
 ------
 
 ### Задание 2. Создать Deployment и обеспечить старт основного контейнера при выполнении условий
@@ -54,6 +52,18 @@
 3. Создать и запустить Service. Убедиться, что Init запустился.
 4. Продемонстрировать состояние пода до и после запуска сервиса.
 
+### Ответ:
+1. Создать Deployment приложения nginx, [манифест прилагаю](/practice/12.3/task2/deployment-task2.yaml)
+2. Запустил, видим что nginx не стартует:  
+    ![](/pics/12.3/task2-nginx-not-started.jpg)  
+3. Создал Service [отдельным манифестом](/practice/12.3/task2/service.yaml)
+4. Запустил service:
+    ```shell
+    egor@netology:~/Homeworks/12.3/task2$ kubectl apply -f service.yaml
+    service/netology-svc created
+    ```  
+5. Видим состояние пода:  
+    ![](/pics/12.3/task2-nginx-started.jpg)  
 ------
 
 ### Правила приема работы
