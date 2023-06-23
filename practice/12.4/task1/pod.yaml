@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    app: pod1
+  name: pod1
+  namespace: default
+spec:
+  containers:
+  - name: multitool
+    image: praqma/network-multitool:alpine-extra
+    imagePullPolicy: IfNotPresent
+    ports:
+      - containerPort: 8090
+        name: pod1-port

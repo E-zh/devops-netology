@@ -59,3 +59,4 @@
 * [12.1. Kubernetes. Причины появления. Команда kubectl](Homeworks_md/Homework_12.1_Kubernetes_01.md)
 * [12.2. Базовые объекты K8S](Homeworks_md/Homework_12.2_Kubernetes_02.md)
 * [12.3. Запуск приложений в K8S](Homeworks_md/Homework_12.3_Kubernetes_03.md)
+* [12.4. Сетевое взаимодействие в K8S. Часть 1](Homeworks_md/Homework_12.4_Kubernetes_04.md)

@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: deploy1
+  name: deploy1
+  namespace: default
+spec:
+  selector:
+    matchLabels:
+      app: deploy1
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: deploy1
+    spec:
+      containers:
+      - image: nginx:1.24.0
+        imagePullPolicy: IfNotPresent
+        name: nginx
+      - image: praqma/network-multitool:alpine-extra
+        imagePullPolicy: IfNotPresent
+        name: multitool
+        env:
+        - name: HTTP_PORT
+          value: "8080"
