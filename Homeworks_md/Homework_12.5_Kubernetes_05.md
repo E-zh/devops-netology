@@ -41,6 +41,12 @@
 2. Создал Deployment приложения `backend` из образа `multitool`. [Файл манифеста deployment_backend.yaml](/practice/12.5/task1/deployment_backend.yaml).
 3. Добавил Service, для удобства в разных файлах: [service_frontend.yaml](/practice/12.5/task1/service_frontend.yaml) и [service_backend.yaml](/practice/12.5/task1/service_backend.yaml).
 4. Запускаем и видим, что приложения видят друг друга с помощью сервисов:
+    * все приложения и сервисы запущены:  
+    ![](/pics/12.5/task1-all.jpg)  
+    * доступ из `frontend` в `backend`:  
+    ![](/pics/12.5/task1-front-to-back.jpg)  
+    * доступ из `backend` в `frontend`:  
+    ![](/pics/12.5/task1-back-to-front.jpg)  
     
 ------
 
@@ -56,6 +62,10 @@
 1. Включил Ingress-controller в MicroK8S: `microk8s enable ingress`.
 2. Создал Ingress, приложения и сервисы использовал из 1-го задания. [Манифест ingress_app.yaml](/practice/12.5/task2/ingress_app.yaml) прилагаю.
 3. Заходим через браузер и видим что доступ есть:
+    * смотрим `frontend` по адресу `http://192.168.1.74`:  
+    ![](/pics/12.5/task2-frontend.jpg)  
+    * смотрим `backend` по адресу `http://192.168.1.74/api`:  
+    ![](/pics/12.5/task2-backend.jpg)  
 
 ------
 

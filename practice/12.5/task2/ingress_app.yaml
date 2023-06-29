@@ -8,14 +8,14 @@ spec:
     http:
       paths:
       - path: /
-        #pathType: Prefix
+        pathType: Prefix
         backend:
           service:
             name: svc-frontend
             port:
               number: 9001
       - path: /api
-        #pathType: Prefix
+        pathType: Prefix
         backend:
           service:
             name: svc-backend
