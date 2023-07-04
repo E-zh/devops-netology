@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: ds-vol
+  namespace: default
+  labels:
+    app: ds-vol-log
+spec:
+  selector:
+    matchLabels:
+      name: ds-vol
+  template:
+    metadata:
+      labels:
+        name: ds-vol
+    spec:
+      containers:
+      - name: multitool
+        image: praqma/network-multitool:alpine-extra
+        volumeMounts:
+        - name: varlog
+          mountPath: /syslogs
+      volumes:
+      - name: varlog
+        hostPath:
+          path: /var/log/syslog
