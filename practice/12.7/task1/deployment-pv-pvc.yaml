@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: dep-vol
+  name: dep-vol
+  namespace: default
+spec:
+  selector:
+    matchLabels:
+      app: dep-vol
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: dep-vol
+    spec:
+      containers:
+      - image: busybox
+        name: busybox
+        command: ['sh', '-c', 'watch -n 5 echo Netology! > /output/netology-file.txt']
+        volumeMounts:
+        - name: vol
+          mountPath: /output
+      - image: praqma/network-multitool:alpine-extra
+        name: multitool
+        volumeMounts:
+        - name: vol
+          mountPath: /input
+      volumes:
+      - name: vol
+        persistentVolumeClaim:
+          claimName: pvc-vol
