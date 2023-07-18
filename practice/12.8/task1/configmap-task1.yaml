@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: t1-configmap
+  namespace: default
+data:
+  http-port: "8080"
+  index.html:
+    <html>
+    <h1>Welcome to Netology!</h1>
+    </br>
+    <h3>This is main page!</h3>
+    </html>

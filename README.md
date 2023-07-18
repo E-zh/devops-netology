@@ -63,3 +63,4 @@
 * [12.5. Сетевое взаимодействие в K8S. Часть 2](Homeworks_md/Homework_12.5_Kubernetes_05.md)
 * [12.6. Хранение в K8s. Часть 1](Homeworks_md/Homework_12.6_Kubernetes_06.md)
 * [12.7. Хранение в K8s. Часть 2](Homeworks_md/Homework_12.7_Kubernetes_07.md)
+* [12.8. Конфигурация приложений](Homeworks_md/Homework_12.8_Kubernetes_08.md)

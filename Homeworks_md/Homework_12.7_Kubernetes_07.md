@@ -43,7 +43,7 @@
 ### Ответ:
 1. Создал [Deployment](/practice/12.7/task1/deployment-pv-pvc.yaml) приложения, состоящего из контейнеров busybox и multitool.
 2. создал [PV](/practice/12.7/task1/pv-netology.yaml) и [PVC](/practice/12.7/task1/pvc-netology.yaml) для подключения папки на локальной ноде, которая будет использована в поде.
-3. Busybox пишет каждые пять секунд в файл, что реализовано строкой `ommand: ['sh', '-c', 'watch -n 5 echo Netology! > /output/netology-file.txt']`.
+3. Busybox пишет каждые пять секунд в файл, что реализовано строкой `command: ['sh', '-c', 'watch -n 5 echo Netology! > /output/netology-file.txt']`.
 4. Привожу наглядно:
     * скриншоты работающих подов, deployment, pv и pvc:  
     ![](/pics/12.7/task1-all.jpg)  

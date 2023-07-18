@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: task1
+  name: task1
+  namespace: default
+spec:
+  selector:
+    matchLabels:
+      app: task1
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: task1
+    spec:
+      containers:
+      - image: nginx:1.24.0
+        imagePullPolicy: IfNotPresent
+        name: nginx
+        volumeMounts:
+          - name: nginx-index-file
+            mountPath: /usr/share/nginx/html/
+      - image: praqma/network-multitool:alpine-extra
+        imagePullPolicy: IfNotPresent
+        name: multitool
+        env:
+        - name: HTTP_PORT
+          valueFrom:
+            configMapKeyRef:
+              name: t1-configmap
+              key: http-port
+      volumes:
+      - name: nginx-index-file
+        configMap:
+          name: t1-configmap
