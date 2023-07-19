@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: task2
+  name: task2
+  namespace: default
+spec:
+  selector:
+    matchLabels:
+      app: task2
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: task2
+    spec:
+      containers:
+      - image: nginx:1.24.0
+        imagePullPolicy: IfNotPresent
+        name: nginx
+        volumeMounts:
+          - name: nginx-index-file
+            mountPath: /usr/share/nginx/html/
+      volumes:
+      - name: nginx-index-file
+        configMap:
+          name: t2-configmap
