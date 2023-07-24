@@ -64,3 +64,4 @@
 * [12.6. Хранение в K8s. Часть 1](Homeworks_md/Homework_12.6_Kubernetes_06.md)
 * [12.7. Хранение в K8s. Часть 2](Homeworks_md/Homework_12.7_Kubernetes_07.md)
 * [12.8. Конфигурация приложений](Homeworks_md/Homework_12.8_Kubernetes_08.md)
+* [12.9. Управление доступом](Homeworks_md/Homework_12.9_Kubernetes_09.md)
