@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: netology-svc
+  namespace: {{ .Values.namespace }}
+  labels:
+    app: netology-nginx
+spec:
+  ports:
+    - port: {{ .Values.appPort }}
+      name: http
+  selector:
+    app: netology-nginx
