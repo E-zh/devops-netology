@@ -9,7 +9,6 @@ terraform {
 
 provider yandex {
   token     = var.yc_token
-  #service_account_key_file = file("key.json")
   cloud_id  = var.yc_cloud_id
   folder_id = var.yc_folder_id
   zone      = "ru-central1-a"
@@ -17,7 +16,7 @@ provider yandex {
 
 resource yandex_compute_image ubu-img {
   name         = "ubuntu-2204-lts"
-  source_image = "fd8smb7fj0o91i68s15v"
+  source_image = "fd8bkgba66kkf9eenpkb"
 }
 
 resource "yandex_vpc_network" "net" {
@@ -32,49 +31,18 @@ resource "yandex_vpc_subnet" "subnet" {
 }
 
 locals {
-  instance = {
-    default = 1
-    stage = 1
-    prod  = 2
-  }
-}
-
-resource "yandex_compute_instance" "netology-count" {
-  name = "netology-${count.index}-${terraform.workspace}"
-
-  resources {
-    cores  = "2"
-    memory = "4"
-  }
-
-  boot_disk {
-    initialize_params {
-      image_id = yandex_compute_image.ubu-img.id
-    }
-  }
-
-  network_interface {
-    subnet_id = yandex_vpc_subnet.subnet.id
-    nat       = true
-  }
-
-  count = local.instance[terraform.workspace]
-
-  metadata = {
-    user-data = file("meta.txt")
-  }
-}
-
-locals {
-  id = toset([
-    "1",
-    "2",
+  name = toset([
+    "netology-master-1",
+    "netology-worker-1",
+    "netology-worker-2",
+    "netology-worker-3",
+    "netology-worker-4",
   ])
 }
 
 resource "yandex_compute_instance" "netology-for" {
-  for_each = local.id
-  name     = "netology-${each.key}-${terraform.workspace}"
+  for_each = local.name
+  name     = each.key
 
   resources {
     cores  = "2"
@@ -84,12 +52,15 @@ resource "yandex_compute_instance" "netology-for" {
   boot_disk {
     initialize_params {
       image_id = yandex_compute_image.ubu-img.id
+      type     = "network-hdd"
+      size     = 20
     }
   }
 
   network_interface {
     subnet_id = yandex_vpc_subnet.subnet.id
     nat       = true
+    ipv6      = false
   }
 
   metadata = {
