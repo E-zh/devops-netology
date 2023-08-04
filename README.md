@@ -67,3 +67,4 @@
 * [12.9. Управление доступом](Homeworks_md/Homework_12.9_Kubernetes_09.md)
 * [12.10. Helm](Homeworks_md/Homework_12.10_Kubernetes_10.md)
 * [13.1. Компоненты Kubernetes](Homeworks_md/Homework_13.1_Kuber_Components.md)
+* [13.2. Установка Kubernetes](Homeworks_md/Homework_13.2_Kuber_Install.md)
