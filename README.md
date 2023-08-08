@@ -69,3 +69,4 @@
 * [13.1. Компоненты Kubernetes](Homeworks_md/Homework_13.1_Kuber_Components.md)
 * [13.2. Установка Kubernetes](Homeworks_md/Homework_13.2_Kuber_Install.md)
 * [13.3. Как работает сеть в K8s](Homeworks_md/Homework_13.3_Kuber_Lan.md)
+* [13.4. Обновление приложений](Homeworks_md/Homework_13.4_Kuber_Update.md)
