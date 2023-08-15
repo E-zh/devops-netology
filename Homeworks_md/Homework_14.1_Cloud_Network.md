@@ -35,7 +35,7 @@ Resource Terraform для Yandex Cloud:
 ---
 ### Ответ:
 1. Данное задание выполнялось с помощью terraform.
-2. Создал пустую VPC. Выбрал зону `ru-central1-a` для подсети `public:  
+2. Создал пустую VPC. Выбрал зону `ru-central1-a` для подсети `public`:  
     ```yaml
     resource "yandex_vpc_network" "net-vpc" {
       name = local.network_name
