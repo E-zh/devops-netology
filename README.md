@@ -73,3 +73,4 @@
 * [13.5. Troubleshooting](Homeworks_md/Homework_13.5_Kuber_Troubleshooting.md)
 * [14.1. Организация сети](Homeworks_md/Homework_14.1_Cloud_Network.md)
 * [14.2. Вычислительные мощности. Балансировщики нагрузки](Homeworks_md/Homework_14.2_Cloud_LoadBalancer.md)
+* [14.3. Безопасность в облачных провайдерах](Homeworks_md/Homework_14.3_Cloud_Security.md)
