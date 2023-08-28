@@ -34,51 +34,82 @@ Resource Terraform для Yandex Cloud:
 
 ---
 ### Ответ:
-1. Данное задание выполнялось с помощью terraform.
+1. Данное задание выполнялось с помощью `terraform`.
 2. Создал пустую VPC. Выбрал зону `ru-central1-a` для подсети `public`:  
     ```yaml
-    resource "yandex_vpc_network" "net-vpc" {
-      name = local.network_name
-    }
-    
-    # Подсети
-    resource "yandex_vpc_subnet" "public-subnet" {
-      name           = local.subnet_name1
-      zone           = "ru-central1-a"
-      network_id     = yandex_vpc_network.net-vpc.id
-      v4_cidr_blocks = ["192.168.10.0/24"]
-    }
+    resource "yandex_vpc_network" "netology-network" {
+   name = "netology-network"
+   }
+
+   # Public subnet and her resources
+   resource "yandex_vpc_subnet" "public" {
+     name           = "public"
+     v4_cidr_blocks = ["192.168.10.0/24"]
+     zone           = var.yc_region
+     network_id     = yandex_vpc_network.netology-network.id
+   }
     ```
 3. Далее создан NAT инстанс, в качестве image_id использовал `fd80mrhj8fl2oe87o4e1`:  
    ```yaml
-   resource "yandex_compute_image" "nat-vm" {
-     name         = "nat-instance-ubuntu"
-     source_image = "fd80mrhj8fl2oe87o4e1"
-   }
+   resource "yandex_compute_instance" "nat-instance" {
+     name     = "nat-instance"
+     hostname = "nat-instance"
+     zone     = var.yc_region
+   
+     resources {
+       cores  = 2
+       memory = 2
+     }
+   
+     boot_disk {
+       initialize_params {
+         image_id = "fd80mrhj8fl2oe87o4e1"
+       }
+     }
+   
+     network_interface {
+       subnet_id  = "${yandex_vpc_subnet.public.id}"
+       ip_address = "192.168.10.254"
+       nat        = true
+     }
+   
+     metadata = {
+       ssh-keys = "ubuntu:${file("~/.ssh/id_ed25519.pub")}"
+     }
+   
+     scheduling_policy {
+       preemptible = true
+     }
+   }   
    ```
-4. Создана ВМ в публичной сети, подключаемся к ней, и проверяем что у нее есть интернет:  
-   ![](/pics/14.1/test-1vm.jpg)    
-5. Добавил приватную сеть и правило маршрутизации:  
+4. Выполнил `export TF_VAR_yc_token=$(yc iam create-token)` и `terraform apply`:  
+   ![](/pics/14.1/1-terraform-apply.jpg)  
+5. Смотрим в консоли Yandex.Cloud и видим что ВМ созданы и работают:  
+   ![](/pics/14.1/2-yc-vms.jpg)  
+6. Создана ВМ в публичной сети, подключаемся к ней по адресу `158.160.122.84`, и проверяем что у нее есть интернет:  
+   ![](/pics/14.1/3-test-public-vm.jpg)      
+7. Добавил приватную сеть и правило маршрутизации:  
    ```yaml
-   resource "yandex_vpc_subnet" "private-subnet" {
-     name           = local.subnet_name2
-     zone           = "ru-central1-a"
-     network_id     = yandex_vpc_network.net-vpc.id
-     v4_cidr_blocks = ["192.168.20.0/24"]
-     route_table_id = yandex_vpc_route_table.nat-instance-route.id
+   resource "yandex_vpc_route_table" "rt-netology" {
+     name       = "rt-netology"
+     network_id = yandex_vpc_network.netology-network.id
+     static_route {
+       destination_prefix = "0.0.0.0/0"
+       next_hop_address   = "192.168.10.254"
+     }
    }
    
-   resource "yandex_vpc_route_table" "nat-instance-route" {
-     name       = "nat-instance-route"
-     network_id = yandex_vpc_network.net-vpc.id
-     static_route {
-       destination_prefix = "192.168.10.254"
-       next_hop_address   = yandex_compute_instance.nat-vm.network_interface.0.ip_address
-     }
+   resource "yandex_vpc_subnet" "private" {
+     name           = "private_subnet"
+     v4_cidr_blocks = ["192.168.20.0/24"]
+     zone           = var.yc_region
+     network_id     = yandex_vpc_network.netology-network.id
+     route_table_id = yandex_vpc_route_table.rt-netology.id
+   }   
    ```
-6. В приватной сети создана ВМ, подключаемся к ней через первую ВМ, и видим что есть доступ к интернету:  
-   ![](/pics/14.1/test-2vm.jpg)  
-7. Итоговый файл [main.tf](/practice/14.1/main.tf) прилагаю. На этом задание выполнено.
+8. В приватной сети создана ВМ c ip-адресом `192.168.20.17`, подключаемся к ней через первую ВМ, и видим что есть доступ к интернету:  
+   ![](/pics/14.1/4-test-private-vm.jpg)  
+9. Итоговый файл [main.tf](/practice/14.1/main.tf) прилагаю. На этом задание выполнено.
 ---
 ### Правила приёма работы
 
